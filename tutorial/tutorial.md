@@ -39,7 +39,7 @@ Now we’re ready to set up the gateway.
 
    The Secure Gateway page opens. 
 
-> **Note:** If you haven’t yet installed the Docker client, you must go do so now (see previous section).
+    _**Note:** If you haven’t yet installed the Docker client, you must go do so now (see previous section)._
 
 8. Click **Add Gateway**.
 9. Enter any name you want for the gateway.
@@ -47,14 +47,14 @@ Now we’re ready to set up the gateway.
 
    You now have a secure gateway established. This gateway is an empty tunnel. Next, we’ll send some traffic through it.
 
-11. Under How would you like to connect this gateway? choose Docker.
+11. Under **How would you like to connect this gateway?** choose **Docker**.
 12. Copy the text and, if you’re on Mac or Windows, add additional text.
 
-   If you’re on Linux, this command works fine as-is. But for Mac and Windows, you need to insert the following additional text, right after `docker run`
+    If you’re on Linux, this command works fine as-is. But for Mac and Windows, you need to insert the following additional text, right after `docker run`
 
    ``` --net=host ```
 
-   Insert spaces on either side. So the beginning of the line looks like this:
+    Insert spaces on either side. The beginning of the line should look like this:
 
    ``` docker run --net=host -it ibmcom/secure-gateway-client… ```
 
@@ -71,26 +71,39 @@ status in the upper right corner shows as Connected.</i></p>
 
 ## Set destination
 
-Next, we must set the data source endpoint. This will be the on-premise source database we want to share out to the cloud. For the purposes of this tutorial, we’ll use a simple CouchDB database, you can store and
+Next, we must set the data source endpoint. This will be the on-premise source database we want to share out to the cloud. For the purposes of this tutorial, we’ll use a simple CouchDB database.
 
 1. On your on-premise laptop or computer, install CouchDB.
 
     Visit http://couchdb.apache.org/, then download and installCouchDB.
-
-2. Download a couchDB file we provide? 
 3. In Bluemix, add the destination.
+ 
     Return to or open the gateway in Bluemix. Enter the IP address and port of the on-premise machine where your couchDB database resides and click the +plus button on the far right of the line.
+
     ---picture---
 3. If you're on Windows or Mac, configure Boot2Docker to provide access to the data.
-    On Windows and Mac, you must allow access through multiple containers. To do so, return to the Boot2Docker command line you had open. Open a new instance of Boot2Docker and run the following command--inserting your IP and port information.
+
+    On Windows and Mac, you must allow access through multiple containers. To do so, return to the Boot2Docker command line you had open. Open a new instance of Boot2Docker and run the following command--inserting your own IP and port information (for your on-premise host machine).
 ``` bash-3.2$ boot2docker ssh -R 127.0.0.:5984:127.0.0.1:5984 ```
 
 > **Tip:** If you want to see what just ran, open up your Terminal command line and ad the `cli>` prompt type `loglevel TRACE`
+
     ----picture----
-4. View the couchDB data on the cloud using a laptop or machine outside your on-premise network.
-    Open Bluemix and 
+    
+## Test the connection
+
+Now you'll see some results. Follow these steps to view your local couchDB data from outside your network.
+
+4. On a laptop or machine outside your on-premise network, open a browser and sign in to Bluemix.
+5. Locate the secure gateway connection you created and click its i information button.
+6. Beside the destination, click **Copy**.
+      ---picture---
+7. Open another browswer or browser window and paste the string into the address bar and press Enter.
+
+   You'll see your couchDB dashboard (Fauxton) appear. That's it!  Your database in now accessible from outside your network!
+
 5. See the traffic in Bluemix.
     Return to or open the gateway in Bluemix. The chart shows a spike in traffic.
     ----picture---
 
-
+Now you know how create a secure gateway that opens your on-premise data to the cloud. You can try these same steps  with  MYSQL, DB2, MongoDB or any other databases you use on-premise. Stay tuned for additional parts of this tutorial which will show you how to include data sets from multiple sources (cloud-based and local) for combination and analysis. Last but not least, we'll show how to implement security and permissions that let you control who sees what.
