@@ -62,7 +62,7 @@ Now we’re ready to set up the gateway.
 
    Your gateway client is now connected to Bluemix. 
 
-<p align="center">:--pic--:</p>
+<p align="center"><img src="images/connected.png"</p>
 <p align="center"><i><strong>Connected!</strong> If you go back and open the gateway in Bluemix, 
 status in the upper right corner shows as Connected.</i></p>
 
@@ -78,9 +78,10 @@ Next, we must set the data source endpoint. This will be the on-premise source d
     Visit http://couchdb.apache.org/, then download and installCouchDB.
 3. In Bluemix, add the destination.
  
-    Return to or open the gateway in Bluemix. Enter the IP address and port of the on-premise machine where your couchDB database resides and click the +plus button on the far right of the line.
+    Return to or open the gateway in Bluemix. Under **Create Destinations** Enter a name for the connection. Then enter the IP address and port of the on-premise machine where your couchDB database resides and click the +plus button on the far right of the line.
 
-    ---picture---
+<p align="center"><img src="images/add_destination.png"</p>
+
 3. If you're on Windows or Mac, configure Boot2Docker to provide access to the data.
 
     On Windows and Mac, you must allow access through multiple containers. To do so, return to the Boot2Docker command line you had open. Open a new instance of Boot2Docker and run the following command--inserting your own IP and port information (for your on-premise host machine).
@@ -88,8 +89,6 @@ Next, we must set the data source endpoint. This will be the on-premise source d
 
 > **Tip:** If you want to see what just ran, open up your Terminal command line and ad the `cli>` prompt type `loglevel TRACE`
 
-    ----picture----
-    
 ## Test the connection
 
 Now you'll see some results. Follow these steps to view your local couchDB data from outside your network.
@@ -97,13 +96,16 @@ Now you'll see some results. Follow these steps to view your local couchDB data 
 4. On a laptop or machine outside your on-premise network, open a browser and sign in to Bluemix.
 5. Locate the secure gateway connection you created and click its i information button.
 6. Beside the destination, click **Copy**.
-      ---picture---
+
+<p align="center"><img src="images/copy_dest.png"</p>
+
 7. Open another browswer or browser window and paste the string into the address bar and press Enter.
 
-   You'll see your couchDB dashboard (Fauxton) appear. That's it!  Your database in now accessible from outside your network!
+   You'll see your couchDB dashboard (Fauxton) appear. That's it!  Your database is now accessible from outside your network!
 
 5. See the traffic in Bluemix.
     Return to or open the gateway in Bluemix. The chart shows a spike in traffic.
-    ----picture---
+
+<p align="center"><img src="images/traffic_spike.png"</p>
 
 Now you know how create a secure gateway that opens your on-premise data to the cloud. You can try these same steps  with  MYSQL, DB2, MongoDB or any other databases you use on-premise. Stay tuned for additional parts of this tutorial which will show you how to include data sets from multiple sources (cloud-based and local) for combination and analysis. Last but not least, we'll show how to implement security and permissions that let you control who sees what.
