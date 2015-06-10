@@ -71,12 +71,26 @@ status in the upper right corner shows as Connected.</i></p>
 
 ## Set destination
 
-Next, we must set the data source endpoint. This will be the on-premise source database we want to share out to the cloud. For the purposes of this tutorial, we’ll use a simple CouchDB database, which you can download…? ….
+Next, we must set the data source endpoint. This will be the on-premise source database we want to share out to the cloud. For the purposes of this tutorial, we’ll use a simple CouchDB database, you can store and
 
-On the on-premise machine, install CouchDB.
-Visit http://couchdb.apache.org/, then download and installCouchDB.
-Return to the Terminal command line you used to connect to Docker.
+1. On your on-premise laptop or computer, install CouchDB.
 
+    Visit http://couchdb.apache.org/, then download and installCouchDB.
 
+2. Download a couchDB file we provide? 
+3. In Bluemix, add the destination.
+    Return to or open the gateway in Bluemix. Enter the IP address and port of the on-premise machine where your couchDB database resides and click the +plus button on the far right of the line.
+    ---picture---
+3. If you're on Windows or Mac, configure Boot2Docker to provide access to the data.
+    On Windows and Mac, you must allow access through multiple containers. To do so, return to the Boot2Docker command line you had open. Open a new instance of Boot2Docker and run the following command--inserting your IP and port information.
+``` bash-3.2$ boot2docker ssh -R 127.0.0.:5984:127.0.0.1:5984 ```
+
+> **Tip:** If you want to see what just ran, open up your Terminal command line and ad the `cli>` prompt type `loglevel TRACE`
+    ----picture----
+4. View the couchDB data on the cloud using a laptop or machine outside your on-premise network.
+    Open Bluemix and 
+5. See the traffic in Bluemix.
+    Return to or open the gateway in Bluemix. The chart shows a spike in traffic.
+    ----picture---
 
 
