@@ -30,12 +30,12 @@ Now we’re ready to set up the gateway.
 
    If you’re new to Bluemix, you can sign up for a free trial. 
 
-3. Within the left-hand menu, click Services.
+3. Within the left-hand menu, click **Services**.
 
-4. Click + Add a service or API.
-5. Scroll down to integration and click Secure Gateway.
-6. On the upper right of the screen, click the APP dropdown and choose Leave unbound.
-7. Click Create.
+4. Click **+ Add a service or API**.
+5. Scroll down to **Integration** and click **Secure Gateway**.
+6. On the upper right of the screen, click the **APP** dropdown and choose **Leave unbound**.
+7. Click **Create**.
 
    The Secure Gateway page opens. 
 
