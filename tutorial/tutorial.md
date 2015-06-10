@@ -44,9 +44,6 @@ Now we’re ready to set up the gateway.
 8. Click **Add Gateway**.
 9. Enter any name you want for the gateway.
 10. Click **Connect it**.
-
-   You now have a secure gateway established. This gateway is an empty tunnel. Next, we’ll send some traffic through it.
-
 11. Under **How would you like to connect this gateway?** choose **Docker**.
 12. Copy the text and, if you’re on Mac or Windows, add additional text.
 
