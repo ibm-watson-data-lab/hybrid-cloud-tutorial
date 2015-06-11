@@ -6,9 +6,9 @@ See how easy it is to unlock your data for use in mobile and web applications, o
 
 ## Why use a secure gateway?
 
-Lots of enterprises have valuable data they need to protect. To keep sensitive data secure, databases are often stored on-premise within an organization’s physical location, where staff can protect it more easily. But more and more, organizations also want to host data in the cloud, for fast access and interaction.
+Lots of enterprises have valuable data they need to protect. To keep sensitive data secure, databases are often stored on-premise within an organization’s physical location, where staff can protect it more easily. But more and more, organizations also want to host data in the cloud, for scalability, fast access and interaction
 
-Secure gateway lets you safely connect to an on-premise database. It’s like a secure tunnel through which you can access protected data. The gateway encrypts and authenticates user connections, to prohibit unauthorized access.  It’s a way to open your on-premise data to the cloud (and enjoy the flexibility that offers), without actually putting that data in the cloud.
+Secure gateway lets you safely connect to an on-premise database. It works by creating a secure tunnel through which you can access protected data. The gateway encrypts and authenticates user connections, to prohibit unauthorized access. It’s a way to open your on-premise data to the cloud and enjoy the flexibility, security and scalability that it offers.
 
 ## How secure gateway works
 
@@ -16,7 +16,7 @@ Secure gateway lets you safely connect to an on-premise database. It’s like a 
 
 ## Set up a secure gateway
 
-In this tutorial, we’ll set up a secure gateway for access a sample CouchDB database. Of course, the whole point of a secure gateway is to provide secure, protected access, but here in Part 1, we won’t yet configure specific security settings. First things first: for now, we’ll just set up the basic connection.
+In this tutorial, we’ll set up a secure gateway for access a sample CouchDB database (note: the point of using CouchDB is to verify that the Secure Gateway instance works. You can replace it with any database of your choice to achieve the same results). Of course, the whole point of a secure gateway is to provide secure, protected access, but here in Part 1, we won’t yet configure specific security settings. First things first: for now, we’ll just set up the basic connection.
 
 ## Install Docker client
 
@@ -75,16 +75,16 @@ Next, we must set the data source endpoint. This will be the on-premise source d
     Visit http://couchdb.apache.org/, then download and installCouchDB.
 3. In Bluemix, add the destination.
  
-    Return to or open the gateway in Bluemix. Under **Create Destinations** Enter a name for the connection. Then enter the IP address and port of the on-premise machine where your couchDB database resides and click the +plus button on the far right of the line.
+    Return to or open the gateway in Bluemix. Under **Create Destinations** Enter a name for the connection. Then enter the IP address and port of the on-premise machine where your couchDB database resides and click the +plus button on the far right of the line (use 127.0.0.1 if CouchDB is installed on the current laptop)
 
 <p align="center"><img src="images/add_destination.png"</p>
 
 3. If you're on Windows or Mac, configure Boot2Docker to provide access to the data.
 
-    On Windows and Mac, you must allow access through multiple containers. To do so, return to the Boot2Docker command line you had open. Open a new instance of Boot2Docker and run the following command--inserting your own IP and port information (for your on-premise host machine).
+    On Windows and Mac, you must allow access through multiple containers. To do so, open a new instance of Boot2Docker and run the following command--inserting your own IP and port information (You can use 127.0.0.1 if couchDB is running on your local laptop).
 ``` bash-3.2$ boot2docker ssh -R 127.0.0.:5984:127.0.0.1:5984 ```
 
-> **Tip:** If you want to see what just ran, open up your Terminal command line and ad the `cli>` prompt type `loglevel TRACE`
+> **Tip:** If you want to see what just ran, open up your Terminal command line and at the `cli>` prompt type `loglevel TRACE`
 
 ## Test the connection
 
@@ -96,13 +96,20 @@ Now you'll see some results. Follow these steps to view your local couchDB data 
 
 <p align="center"><img src="images/copy_dest.png"</p>
 
-7. Open another browswer or browser window and paste the string into the address bar and press Enter.
+7. Open another browswer or browser window and paste the string into the address bar and add /_utils e.g: http://cap-sg-prd-2.integration.ibmcloud.com:15109/_utils/
 
-   You'll see your couchDB dashboard (Fauxton) appear. That's it!  Your database is now accessible from outside your network!
+Then Press Enter.
+
+   You'll see your couchDB dashboard (Futton app) appear. That's it!  Your database is now accessible from outside your on-premise network!
 
 5. See the traffic in Bluemix.
     Return to or open the gateway in Bluemix. The chart shows a spike in traffic.
 
 <p align="center"><img src="images/traffic_spike.png"</p>
 
-Now you know how create a secure gateway that opens your on-premise data to the cloud. You can try these same steps  with  MYSQL, DB2, MongoDB or any other databases you use on-premise. Stay tuned for additional parts of this tutorial which will show you how to include data sets from multiple sources (cloud-based and local) for combination and analysis. Last but not least, we'll show how to implement security and permissions that let you control who sees what.
+Now you know how create a secure gateway that opens your on-premise data to the cloud. You can try these same steps  with  MYSQL, DB2, MongoDB or any other databases you use on-premise. 
+
+## Configuring security for your gateway
+
+
+Stay tuned for additional parts of this tutorial which will show you how to include data sets from multiple sources (cloud-based and local) for combination and analysis. Last but not least, we'll show how to implement security and permissions that let you control who sees what.
