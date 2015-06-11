@@ -86,6 +86,10 @@ Next, we must set the data source endpoint. This will be the on-premise source d
 
 > **Tip:** If you want to see what just ran, open up your Terminal command line and at the `cli>` prompt type `loglevel TRACE`
 
+The following diagram summarizes how the different pieces we've configured in the steps above connect together
+
+<p align="center"><img src="images/secure_gateway_diagram.png"/></p>
+
 ## Test the connection
 
 Now you'll see some results. Follow these steps to view your local couchDB data from outside your network.
