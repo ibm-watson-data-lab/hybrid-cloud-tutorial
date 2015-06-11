@@ -105,11 +105,14 @@ Then Press Enter.
 5. See the traffic in Bluemix.
     Return to or open the gateway in Bluemix. The chart shows a spike in traffic.
 
-<p align="center"><img src="images/traffic_spike.png"</p>
+<p align="center"><img src="images/traffic_spike.png"/></p>
 
 Now you know how create a secure gateway that opens your on-premise data to the cloud. You can try these same steps  with  MYSQL, DB2, MongoDB or any other databases you use on-premise. 
 
 ## Configuring security for your gateway
+There are 2 type of security to consider:
+1. Require a security token be used when starting the gateway client. This is useful if you want to control who can start the gateway client. To do so, simply check off the "Enforce Security Token on Client" check box that can be found in the first screen of the Add Gateway process:
 
+<p aligh="center"><img src="images/add_gateway_security.png"/></p>
 
 Stay tuned for additional parts of this tutorial which will show you how to include data sets from multiple sources (cloud-based and local) for combination and analysis. Last but not least, we'll show how to implement security and permissions that let you control who sees what.
