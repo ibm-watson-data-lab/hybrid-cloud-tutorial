@@ -111,8 +111,15 @@ Now you know how create a secure gateway that opens your on-premise data to the 
 
 ## Configuring security for your gateway
 There are 2 type of security to consider:
+
 1. Require a security token be used when starting the gateway client. This is useful if you want to control who can start the gateway client. To do so, simply check off the "Enforce Security Token on Client" check box that can be found in the first screen of the Add Gateway process:
 
 <p aligh="center"><img src="images/add_gateway_security.png"/></p>
+
+You can then find the security token in Gateway details infobox (beside the key icon). You can then use it when starting the gateway on the client:
+
+``` 
+   docker run --net=host -it ibmcom/secure-gateway-client <gatewayid> --sectoken <token>
+```
 
 Stay tuned for additional parts of this tutorial which will show you how to include data sets from multiple sources (cloud-based and local) for combination and analysis. Last but not least, we'll show how to implement security and permissions that let you control who sees what.
