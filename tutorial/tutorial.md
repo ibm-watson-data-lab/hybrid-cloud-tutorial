@@ -121,7 +121,7 @@ You can then find the security token in Gateway details infobox (beside the key 
 ``` 
    docker run --net=host -it ibmcom/secure-gateway-client <gatewayid> --sectoken <token>
 ```
-2. [Advanced]You can extend TLS encryption between the gateway client and your on-premise data source. To do so, you'll need to click the "Enable client TLS" checkbox that is located in the Advance section of the destination configuration. Optionally, you can upload a certificate file (.pem extension). Note: You do not have to do this step if the certificate is self-signed.
+2. [Advanced] You can extend TLS encryption between the gateway client and your on-premise data source. To do so, you'll need to click the "Enable client TLS" checkbox that is located in the Advance section of the destination configuration. Optionally, you can upload a certificate file (.pem extension). Note: You do not have to do this step if the certificate is self-signed.
 
 ## Stay tuned...
 for additional parts of this tutorial which will show you how to include data sets from multiple sources (cloud-based and local) for combination and analysis. Last but not least, we'll show how to implement security and permissions that let you control who sees what.
