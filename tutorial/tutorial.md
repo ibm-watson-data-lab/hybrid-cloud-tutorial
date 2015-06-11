@@ -12,7 +12,14 @@ Secure gateway lets you safely connect to an on-premise database. It works by cr
 
 ## How secure gateway works
 
---text and diagram--
+1. When you create a new Secure Gateway on Bluemix, you are given a gateway id that will be used to start the gateway client in the on-prem network
+2. Optionally add additional security by enforcing the use of a security token when starting the client
+3. Start the gateway client
+4. Create one or more destinations to your on-prem database servers. Each destination will be assigned its own port on the proxy server.
+5. Access your data from your bluemix app, through the url given for each destination
+
+The following diagram denotes how the different pieces connect together. 
+<p align="center"><img src="images/secure_gateway_diagram.png"/></p>
 
 ## Set up a secure gateway
 
@@ -85,10 +92,6 @@ Next, we must set the data source endpoint. This will be the on-premise source d
 ``` bash-3.2$ boot2docker ssh -R 127.0.0.:5984:127.0.0.1:5984 ```
 
 > **Tip:** If you want to see what just ran, open up your Terminal command line and at the `cli>` prompt type `loglevel TRACE`
-
-The following diagram summarizes how the different pieces we've configured in the steps above connect together
-
-<p align="center"><img src="images/secure_gateway_diagram.png"/></p>
 
 ## Test the connection
 
