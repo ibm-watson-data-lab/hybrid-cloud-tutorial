@@ -80,7 +80,7 @@ Next, we must set the data source endpoint. This will be the on-premise source d
 1. On your on-premise laptop or computer, install CouchDB.
 
     Visit http://couchdb.apache.org/, then download and installCouchDB.
-3. In Bluemix, add the destination.
+2. In Bluemix, add the destination.
  
     Return to or open the gateway in Bluemix. Under **Create Destinations** Enter a name for the connection. Then enter the IP address and port of the on-premise machine where your couchDB database resides and click the +plus button on the far right of the line (use 127.0.0.1 if CouchDB is installed on the current laptop)
 
@@ -89,6 +89,7 @@ Next, we must set the data source endpoint. This will be the on-premise source d
 3. If you're on Windows or Mac, configure Boot2Docker to provide access to the data.
 
     On Windows and Mac, you must allow access through multiple containers. To do so, open a new instance of Boot2Docker and run the following command--inserting your own IP and port information (You can use 127.0.0.1 if couchDB is running on your local laptop).
+    
 ``` bash-3.2$ boot2docker ssh -R 127.0.0.:5984:127.0.0.1:5984 ```
 
 > **Tip:** If you want to see what just ran, open up your Terminal command line and at the `cli>` prompt type `loglevel TRACE`
@@ -97,38 +98,38 @@ Next, we must set the data source endpoint. This will be the on-premise source d
 
 Now you'll see some results. Follow these steps to view your local couchDB data from outside your network.
 
-4. On a laptop or machine outside your on-premise network, open a browser and sign in to Bluemix.
-5. Locate the secure gateway connection you created and click its i information button.
-6. Beside the destination, click **Copy**.
+1. On a laptop or machine outside your on-premise network, open a browser and sign in to Bluemix.
+2. Locate the secure gateway connection you created and click its i information button.
+3. Beside the destination, click **Copy**.
 
 <p align="center"><img src="images/copy_dest.png"</p>
 
-7. Open another browswer or browser window and paste the string into the address bar and add /_utils e.g: http://cap-sg-prd-2.integration.ibmcloud.com:15109/_utils/
+4. Open another browser window and paste the string into the address bar. At the end of the string, type `/_utils` so the address looks like this:
 
-Then Press Enter.
+``` http://cap-sg-prd-2.integration.ibmcloud.com:15109/_utils/ ```
 
-   You'll see your couchDB dashboard (Futton app) appear. That's it!  Your database is now accessible from outside your on-premise network!
+   Then press Enter.
 
-5. See the traffic in Bluemix.
-    Return to or open the gateway in Bluemix. The chart shows a spike in traffic.
+   You'll see your couchDB dashboard (Futton app) appear. That's it!  Your database is now accessible from outside your on-premise network!  
+   
+   You saw it happen, and so did Bluemix. In Bluemix, return to or open the gateway. The chart shows a spike in traffic.
 
 <p align="center"><img src="images/traffic_spike.png"/></p>
 
-Now you know how create a secure gateway that opens your on-premise data to the cloud. You can try these same steps  with  MYSQL, DB2, MongoDB or any other databases you use on-premise. 
+   Now you know how create a secure gateway that opens your on-premise data to the cloud. You can try these same steps  with  MYSQL, DB2, MongoDB or any other databases you use on-premise. 
 
 ## Configuring security for your gateway
-There are 2 type of security to consider:
+There are 2 type of security to consider. You can:
 
-1. Require a security token be used when starting the gateway client. This is useful if you want to control who can start the gateway client. To do so, simply check off the "Enforce Security Token on Client" check box that can be found in the first screen of the Add Gateway process:
+- Require a security token when starting the gateway client. This is useful if you want to control who can start the gateway client. To do so, when you add the gateway, turn on the **Enforce Security Token on Client** checkbox.
 
-<p aligh="center"><img src="images/add_gateway_security.png"/></p>
+<p align="center"><img src="images/add_gateway_security.png"/></p>
 
-You can then find the security token in Gateway details infobox (beside the key icon). You can then use it when starting the gateway on the client:
+Once you do so, you see the security token in Gateway details (beside the key icon) for use when starting the gateway on the client:
 
-``` 
-   docker run --net=host -it ibmcom/secure-gateway-client <gatewayid> --sectoken <token>
-```
-2. [Advanced] You can extend TLS encryption between the gateway client and your on-premise data source. To do so, you'll need to click the "Enable client TLS" checkbox that is located in the Advance section of the destination configuration. Optionally, you can upload a certificate file (.pem extension). Note: You do not have to do this step if the certificate is self-signed.
+``` docker run --net=host -it ibmcom/secure-gateway-client <gatewayid> --sectoken <token>```
+
+- [Advanced] extend TLS encryption between the gateway client and your on-premise data source. To do so, click the **Enable client TLS** checkbox located in the Advanced section of the destination configuration. Optionally, you can upload a certificate file (.pem extension). Note: You do not have to do this step if the certificate is self-signed.
 
 ## Stay tuned...
-for additional parts of this tutorial which will show you how to include data sets from multiple sources (cloud-based and local) for combination and analysis. Last but not least, we'll show how to implement security and permissions that let you control who sees what.
+...for additional parts of this tutorial which will show you how to include data sets from multiple sources (cloud-based and local) for combination and analysis. Last but not least, we'll show how to implement security and permissions that let you control who sees what.
