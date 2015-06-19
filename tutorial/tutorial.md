@@ -12,13 +12,16 @@ Secure gateway lets you safely connect to an on-premise database. It works by cr
 
 ## How secure gateway works
 
-1. When you create a new Secure Gateway on Bluemix, you are given a gateway id that will be used to start the gateway client in the on-prem network
-2. Optionally add additional security by enforcing the use of a security token when starting the client
-3. Start the gateway client
-4. Create one or more destinations to your on-prem database servers. Each destination will be assigned its own port on the proxy server.
-5. Access your data from your bluemix app, through the url given for each destination
+One gateway can connect to many on-premise data sources. In this tutorial, we're using Bluemix, IBM's cloud platform to create the gateway. Here's a simplified version of what we're doing here in Part 1: 
 
-The following diagram denotes how the different pieces connect together. 
+1. We'll create a new Secure Gateway on Bluemix, which generates a gateway ID. We'll use that ID to start the gateway client in our on-premise network.
+
+    _**Optional, but smart:** You can add additional security by enforcing the use of a security token when starting the client._
+3. Start the gateway client.
+4. Create one or more destinations (data sources) to your on-prem database servers. Each destination will have its own port on the proxy server.
+5. Test the connection by accessing your data from your a browser or a bluemix app, through the url given for each destination.
+
+Here's how the different pieces connect together. 
 <p align="center"><img src="images/secure_gateway_diagram.png"/></p>
 
 ## Set up a secure gateway
@@ -33,7 +36,7 @@ Docker Engine is a lightweight runtime and packaging tool for apps.  Docker work
 Now we’re ready to set up the gateway.
 
 1. Go to the Bluemix site: https://console.ng.bluemix.net/
-2.  Sign up or sign in.
+2. Sign up or sign in.
 
    If you’re new to Bluemix, you can sign up for a free trial. 
 
@@ -84,7 +87,7 @@ Next, we must set the data source endpoint. This will be the on-premise source d
  
     Return to or open the gateway in Bluemix. Under **Create Destinations** Enter a name for the connection. Then enter the IP address and port of the on-premise machine where your couchDB database resides and click the +plus button on the far right of the line (use 127.0.0.1 if CouchDB is installed on the current laptop)
 
-<p align="center"><img src="images/add_destination.png"</p>
+    <p align="center"><img src="images/add_destination.png"</p>
 
 3. If you're on Windows or Mac, configure Boot2Docker to provide access to the data.
 
@@ -102,24 +105,26 @@ Now you'll see some results. Follow these steps to view your local couchDB data 
 2. Locate the secure gateway connection you created and click its i information button.
 3. Beside the destination, click **Copy**.
 
-<p align="center"><img src="images/copy_dest.png"</p>
+    <p align="center"><img src="images/copy_dest.png"</p>
 
 4. Open another browser window and paste the string into the address bar. At the end of the string, type `/_utils` so the address looks like this:
 
-``` http://cap-sg-prd-2.integration.ibmcloud.com:15109/_utils/ ```
+    ``` http://cap-sg-prd-2.integration.ibmcloud.com:15109/_utils/ ```
 
-   Then press Enter.
+5. Press Enter.
 
-   You'll see your couchDB dashboard (Futton app) appear. That's it!  Your database is now accessible from outside your on-premise network!  
+   You'll see your couchDB dashboard (Futton app) appear. That's it!  Your database is now accessible from outside your on-premise network!
    
-   You saw it happen, and so did Bluemix. In Bluemix, return to or open the gateway. The chart shows a spike in traffic.
+   You saw it happen, and so did Bluemix. In Blumix, return to or open the gateway. The chart shows a spike in traffic.
+
+
 
 <p align="center"><img src="images/traffic_spike.png"/></p>
 
    Now you know how create a secure gateway that opens your on-premise data to the cloud. You can try these same steps  with  MYSQL, DB2, MongoDB or any other databases you use on-premise. 
 
 ## Configuring security for your gateway
-There are 2 type of security to consider. You can:
+There are 2 types of security to consider. You can:
 
 - Require a security token when starting the gateway client. This is useful if you want to control who can start the gateway client. To do so, when you add the gateway, turn on the **Enforce Security Token on Client** checkbox.
 
