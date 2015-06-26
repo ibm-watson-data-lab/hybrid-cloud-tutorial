@@ -1,5 +1,5 @@
 # Hybrid Cloud Tutorial: Using Secure Gateway 
-See how easy it is to unlock your data for use in mobile and web applications, or for more flexible analysis and reporting. Bluemix Secure Gateway service lets you move data from on-prem to the cloud in a secure manner. 
+See how easy it is to unlock your data for use in the cloud. Bluemix Secure Gateway service lets you move data from a local on-premise source up to the cloud in a secure manner. 
 
 <p align="center"><img src="tutorial/images/secure_gateway_diagram.png"/></p>
 
