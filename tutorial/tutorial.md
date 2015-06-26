@@ -1,4 +1,4 @@
-# Hybrid Cloud Tutorial (Part 1): Create a Secure Gateway 
+# Hybrid Cloud Tutorial Part 1: Create a Secure Gateway 
 See how easy it is to unlock your data for use in mobile and web applications, or for more flexible analysis and reporting. Bluemix Secure Gateway service lets you move data from on-prem to the cloud in a secure manner. This is a multi-part tutorial which shows how to set up a gateway and then build an app on top of it. Here, in Part 1, we’ll cover:
 
 - Secure gateway architecture overview
