@@ -58,15 +58,13 @@ Now we’re ready to set up the gateway.
 9. Enter any name you want for the gateway.
 10. Click **Connect it**.
 11. Under **How would you like to connect this gateway?** choose **Docker**.
-12. Copy the text and, if you’re on Mac or Windows, add additional text.
+12. Copy the text and, if you’re on Mac or Windows, add additional text:
+  - If you’re on Linux, this command works fine as-is. But for Mac and Windows, you need to insert the following additional text, right after `docker run`
+   
+    ``` --net=host ```
+  - Insert spaces on either side. The beginning of the line should look like this:
 
-    If you’re on Linux, this command works fine as-is. But for Mac and Windows, you need to insert the following additional text, right after `docker run`
-
-   ``` --net=host ```
-
-    Insert spaces on either side. The beginning of the line should look like this:
-
-   ``` docker run --net=host -it ibmcom/secure-gateway-client… ```
+    ``` docker run --net=host -it ibmcom/secure-gateway-client… ```
 
 13. Go to your computer’s command line, paste in the text, and press Enter.
 
