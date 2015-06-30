@@ -133,11 +133,11 @@ There are 2 types of security to consider. You can:
 
 <p align="center"><img src="images/add_gateway_security.png"/></p>
 
-Once , you see the security token in Gateway details (beside the key icon) for use when starting the gateway on the client:
+Once you do, you see the security token in Gateway details (beside the key icon) for use when starting the gateway on the client:
 
 ``` docker run --net=host -it ibmcom/secure-gateway-client <gatewayid> --sectoken <token>```
 
-- **_(Advanced)_ Extend TLS encryption between the gateway client and your on-prem data source.** To do so, click the **Enable client TLS** checkbox located in the **Advanced** section of the destination configuration. Optionally, you can upload a certificate file (.pem extension). Note: You do not have to do this step if the certificate is self-signed.
+- **_(Advanced)_ Extend TLS encryption between the gateway client and your on-prem data source.** To implement, click the **Enable client TLS** checkbox located in the **Advanced** section of the destination configuration. Optionally, you can upload a certificate file (.pem extension). Note: You do not have to do this step if the certificate is self-signed.
 
 
 ## Stay tuned...
