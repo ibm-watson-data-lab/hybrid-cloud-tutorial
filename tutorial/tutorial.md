@@ -26,7 +26,7 @@ Here's how the different pieces connect together.
 
 ## Set up a secure gateway
 
-In this tutorial, we’ll set up a secure gateway for access a sample Apache CouchDB<sup>TM</sup> database (note: the point of using CouchDB is to verify that the Secure Gateway instance works. You can replace it with any database of your choice to achieve the same results). 
+In this tutorial, we’ll set up a secure gateway for access a sample Apache CouchDB<sup>TM</sup> database. The point of using CouchDB is to verify that the Secure Gateway instance works. You can replace it with any database of your choice to achieve the same results. 
 
 ## Install Docker client
 
