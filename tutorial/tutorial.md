@@ -88,7 +88,7 @@ Next, we must set the data source endpoint. This will be the on-premises source 
     Visit http://couchdb.apache.org/, then download and installCouchDB.
 2. In Bluemix, add the destination.
  
-    Return to or open the gateway in Bluemix. Under **Create Destinations** Enter a name for the connection. Then enter the IP address and port of the on-prem machine where your couchDB database resides and click the +plus button on the far right of the line (use 127.0.0.1 if CouchDB is installed on the current laptop)
+    Return to Bluemix and open your open the gateway. Under **Create Destinations** Enter a name for the connection. Then enter the IP address and port of the on-prem machine where your couchDB database resides and click the +plus button on the far right of the line (use 127.0.0.1 if CouchDB is installed on the current laptop)
 
     <p align="center"><img src="images/add_destination.png"</p>
 
